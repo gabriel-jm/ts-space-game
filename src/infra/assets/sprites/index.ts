@@ -1,2 +1,2 @@
-export * from './sprite-test.js'
+export * from './ship-sprites.js'
 export * from './sprites-map.js'

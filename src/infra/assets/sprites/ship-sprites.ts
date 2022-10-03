@@ -11,4 +11,4 @@ export const spriteTest = [
   [0,0,2,9,9,2,0,0]
 ]
 
-spritesMap.set('ship', spriteTest)
+spritesMap.set(2, spriteTest)

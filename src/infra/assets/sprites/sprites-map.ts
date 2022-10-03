@@ -1,1 +1,1 @@
-export const spritesMap = new Map<string, Array<number[]>>()
+export const spritesMap = new Map<number, Array<number[]>>()
