@@ -13,7 +13,7 @@ export class CanvasDrawer implements Drawer {
     this.ctx.clearRect(0, 0, Sizes.screenWidth, Sizes.screenHeight)
   }
 
-  sprite(spriteId: string, x: number, y: number): void {
+  sprite(spriteId: number, x: number, y: number): void {
     const spriteArray = spritesMap.get(spriteId)
 
     if (spriteArray) {

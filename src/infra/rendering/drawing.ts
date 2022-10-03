@@ -22,6 +22,8 @@ export function spriteArray(pixel: PixelDrawer) {
       
       for (const pixelIndex in line) {
         const pixelColor = line[pixelIndex]
+
+        if (pixelColor === 0) continue
         
         pixel(
           x + Number(pixelIndex),

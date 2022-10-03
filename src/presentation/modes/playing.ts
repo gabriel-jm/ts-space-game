@@ -3,6 +3,7 @@ import { Drawer, GameMode, KeyboardControls } from '../protocols/index.js'
 
 export class PlayingMode implements GameMode {
   #actionByKey: Record<string, () => void>
+  #shipSpriteId = 2
   
   constructor(
     private readonly drawer: Drawer,
@@ -12,7 +13,10 @@ export class PlayingMode implements GameMode {
     this.#actionByKey = {
       ArrowUp: () => this.ship.moveUp(),
       ArrowDown: () => this.ship.moveDown(),
-      ArrowLeft: () => this.ship.moveLeft(),
+      ArrowLeft: () => {
+        this.ship.moveLeft()
+        this.#shipSpriteId = 1
+      },
       ArrowRight: () => this.ship.moveRight()
     }
   }
@@ -22,11 +26,13 @@ export class PlayingMode implements GameMode {
 
     if (key in this.#actionByKey) {
       this.#actionByKey[key]()
+    } else {
+      this.#shipSpriteId = 2
     }
   }
 
   draw(): void {
     this.drawer.clear()
-    this.drawer.sprite('ship', this.ship.x, this.ship.y)
+    this.drawer.sprite(this.#shipSpriteId, this.ship.x, this.ship.y)
   }
 }
